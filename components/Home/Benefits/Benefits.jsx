@@ -1,0 +1,90 @@
+import supportBg from "@/public/images/home/support-bg.png";
+import expertBg from "@/public/images/home/expert-bg.png";
+import Image from "next/image";
+
+const benefitsData = [
+  {
+    id: 1,
+    title: "550 Gbit/s",
+    description:
+      "Our backbone boasts a robust 550 Gbit/s capacity with a fully redundant MPLS ring for unmatched reliability and performance.",
+    icon: "🚀",
+  },
+  {
+    id: 2,
+    title: "24/7 Support",
+    description:
+      "Got a question? Feel free to message us anytime. Together, we'll always find the solution!",
+    icon: "❓",
+  },
+  {
+    id: 3,
+    title: "Ready in 24 hours",
+    description:
+      "Order your new Virtual or Dedicated Server now and be up and running in 24 hours — This is our promise!",
+    bgImg: supportBg,
+  },
+  {
+    id: 4,
+    title: "Modern Data Centers",
+    description:
+      "Our state-of-the-art data centers in Strasbourg and St. Louis are independently tested and certified for excellence.",
+    icon: "🖥️",
+    button: "Learn more",
+  },
+];
+
+export default function Benefits() {
+  return (
+    <section className="text-primary w-full px-5 py-10 md:container md:mx-auto md:px-0 md:py-20">
+      {/* Section Heading */}
+      <h3 className="text-accent text-sm font-bold uppercase">Top Benefits</h3>
+      <h2 className="font-urbanist mt-2 text-3xl font-bold">
+        Everything for peak performance and reliability
+      </h2>
+
+      {/* Benefits Grid */}
+      <div className="mt-8 grid grid-cols-12 gap-6">
+        {benefitsData.map((benefit, i) => (
+          <div
+            key={benefit.id}
+            style={{
+              backgroundImage: benefit.bgImg && `url(${benefit.bgImg.src})`,
+            }}
+            className={`rounded-md border border-neutral-200 p-6 text-center ${benefit.bgImg ? "flex flex-col justify-center bg-[#14161c] bg-cover bg-center text-white" : "bg-[#fafbff]"} ${
+              i >= 3 ? "col-span-12 md:col-span-6" : "col-span-12 md:col-span-4"
+            }`}
+          >
+            {benefit.icon && (
+              <div className="mb-3 text-4xl text-red-500">{benefit.icon}</div>
+            )}
+            <h4 className={`text-xl font-semibold ${benefit.textColor}`}>
+              {benefit.title}
+            </h4>
+            <p className={`mt-2`}>{benefit.description}</p>
+            {benefit.button && (
+              <button className="mt-4 rounded-full border px-5 py-2 font-medium transition hover:bg-gray-200">
+                {benefit.button}
+              </button>
+            )}
+          </div>
+        ))}
+
+        {/* Expert Contact Card */}
+        <div className="relative col-span-12 h-auto min-h-[292px] overflow-hidden rounded-md border border-neutral-200 bg-[#fafbff] md:col-span-6">
+          <Image
+            src={expertBg}
+            alt="expert"
+            fill
+            className="object-cover object-center"
+          />
+          <div className="absolute bottom-4 left-4">
+            <button className="flex items-center rounded-full bg-white px-5 py-2 font-medium">
+              Contact an expert 💬
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

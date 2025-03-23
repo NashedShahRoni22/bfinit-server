@@ -1,6 +1,7 @@
 import { Urbanist, Manrope } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar/Navbar";
+import Footer from "@/components/shared/Footer/Footer";
 
 const urbanist = Urbanist({
   variable: "--font-urbanist",
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
       >
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

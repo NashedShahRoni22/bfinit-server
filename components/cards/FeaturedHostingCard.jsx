@@ -7,17 +7,17 @@ export default function FeaturedHostingCard({ pack }) {
       className={`relative rounded-md border bg-[#fafbff] px-4 py-8 ${pack.mostPopular ? "border-royal-blue scale-y-105 border-2" : "border-neutral-200"}`}
     >
       {pack.mostPopular && (
-        <p className="bg-royal-blue absolute top-0 right-0 rounded-bl-md px-4 py-1.5 text-sm font-semibold text-white">
+        <p className="bg-royal-blue absolute -top-[1px] right-0 rounded-bl-md px-4 py-1.5 text-sm font-semibold text-white">
           Most Popular
         </p>
       )}
       <h5 className="text-2xl font-bold">{pack.name}</h5>
       <p className="mt-1 text-sm">{pack.description}</p>
-      <p className="mt-4 text-lg">
-        $<span className="text-4xl font-extrabold">{pack.price}</span>
+      <p className="mt-4">
+        from $<span className="text-3xl font-extrabold">{pack.price}</span>
         /month
       </p>
-      <p className="mt-0.5 text-sm font-semibold">
+      <p className="mt-1 text-sm font-semibold">
         + $0 Setup Fee & No Extra Renewal Charge
       </p>
       <Link
