@@ -1,6 +1,13 @@
 @import "tailwindcss";
 
 @theme inline {
+  /* fonts */
   --font-urbanist: var(--font-urbanist);
   --font-manrope: var(--font-manrope);
+
+  /* colos */
+  --color-primary: #2f1c6a;
+  --color-accent: #31c5f4;
+  --color-royal-blue: #6d4aff;
+  --color-royal-blue-hover: #5535d4;
 }

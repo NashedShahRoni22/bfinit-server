@@ -33,9 +33,8 @@ export default function MobileNav({ navItems }) {
         <div className="absolute top-[60px] left-0 flex min-h-[calc(100vh-60px)] w-full flex-col gap-4 bg-white p-5 md:hidden">
           {navItems.map((item, i) =>
             item.children ? (
-              <div>
+              <div key={i}>
                 <button
-                  key={i}
                   onClick={() => toggleDropDown(i)}
                   className="flex cursor-pointer items-center gap-1 font-medium hover:text-[#2e68b4]"
                 >
