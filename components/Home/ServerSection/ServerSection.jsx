@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function ServerSection() {
   return (
-    <div className="grid grid-cols-1 gap-8 px-5 py-10 md:container md:mx-auto md:grid-cols-2 md:px-0 md:py-20">
+    <div className="text-primary grid grid-cols-1 gap-8 px-5 py-10 md:container md:mx-auto md:grid-cols-2 md:px-0 md:py-20">
       <div className="relative min-h-96">
         <Image src={reliableBg} fill alt="relaible" className="object-cover" />
       </div>

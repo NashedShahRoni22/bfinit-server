@@ -24,12 +24,12 @@ const navItems = [
         href: "/hosting/vps-hosting",
         description: "Scalable and secure virtual private servers.",
       },
-      {
+      /* {
         icon: "https://img.icons8.com/windows/50/maintenance.png",
         title: "Custom VPS",
         href: "/hosting/build-your-own-vps",
         description: "Customize resources for your exact needs.",
-      },
+      }, */
       {
         icon: "https://img.icons8.com/badges/50/server.png",
         title: "Dedicated Server",

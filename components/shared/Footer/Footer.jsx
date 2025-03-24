@@ -1,5 +1,3 @@
-"use client";
-import { useEffect, useState } from "react";
 import { BiCopyright } from "react-icons/bi";
 import { BsInstagram, BsLinkedin, BsYoutube } from "react-icons/bs";
 import { FaSquareXTwitter } from "react-icons/fa6";
@@ -9,7 +7,32 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Footer() {
-  const [hostingProducts, setHostingProducts] = useState([]);
+  const hostingProducts = [
+    {
+      icon: "https://img.icons8.com/ios/50/domain.png",
+      title: "Web Hosting",
+      href: "/hosting/web-hosting",
+      description: "Reliable and affordable web hosting solutions.",
+    },
+    {
+      icon: "https://img.icons8.com/ios/50/database--v1.png",
+      title: "VPS Hosting",
+      href: "/hosting/vps-hosting",
+      description: "Scalable and secure virtual private servers.",
+    },
+    /* {
+    icon: "https://img.icons8.com/windows/50/maintenance.png",
+    title: "Custom VPS",
+    href: "/hosting/build-your-own-vps",
+    description: "Customize resources for your exact needs.",
+  }, */
+    {
+      icon: "https://img.icons8.com/badges/50/server.png",
+      title: "Dedicated Server",
+      href: "/hosting/dedicated-server",
+      description: "High-performance servers for demanding applications.",
+    },
+  ];
 
   const Products = [
     {
@@ -77,54 +100,6 @@ export default function Footer() {
     },
   ];
 
-  // Fetching hosting products
-  useEffect(() => {
-    const fetchHostingProducts = async () => {
-      const response = await fetch(
-        "https://hpanel.bfinit.com/api/product/categories",
-      );
-      const data = await response.json();
-      setHostingProducts(data.data);
-    };
-
-    fetchHostingProducts();
-  }, []);
-
-  // Categorize hosting products
-  const categorizeHostingProducts = () => {
-    const categories = {
-      "Bare Metal Servers": [1, 3],
-      "Virtual Machine": [2, 8],
-      Hosting: [4, 5, 7],
-    };
-
-    return Object.keys(categories).map((category) => {
-      const productIds = categories[category];
-      const products = hostingProducts.filter((product) =>
-        productIds.includes(product.id),
-      );
-
-      // Add "Build your own VPS" to the "Virtual Machine" category
-      if (category === "Virtual Machine") {
-        products.push({
-          id: "build-your-own-vps",
-          name: "Build your own VPS",
-          link: "/build-your-own-vps",
-        });
-      }
-
-      return {
-        category,
-        products: products.map((product) => ({
-          name: product.name,
-          link: product.link || `/hosting-products/${product.id}`,
-        })),
-      };
-    });
-  };
-
-  const categorizedProducts = categorizeHostingProducts();
-
   return (
     <footer className="bg-neutral-300">
       <div className="mx-5 py-10 md:container md:mx-auto md:py-20">
@@ -160,21 +135,14 @@ export default function Footer() {
             <div>
               <h5 className="font-semibold">Hosting Products</h5>
               <div className="mt-2 ml-2 flex flex-col gap-2">
-                {categorizedProducts.map((category, i) => (
-                  <div key={i}>
-                    <h6 className="font-semibold underline underline-offset-2">
-                      {category.category}
-                    </h6>
-                    {category.products.map((product, j) => (
-                      <Link
-                        href={product.link}
-                        key={j}
-                        className="flex gap-2.5 hover:underline"
-                      >
-                        {product.name}
-                      </Link>
-                    ))}
-                  </div>
+                {hostingProducts.map((product, i) => (
+                  <Link
+                    key={i}
+                    href={product.href}
+                    className="flex gap-2.5 hover:underline"
+                  >
+                    {product.title}
+                  </Link>
                 ))}
               </div>
             </div>
