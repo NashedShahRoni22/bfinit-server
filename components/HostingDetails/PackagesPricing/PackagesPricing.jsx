@@ -42,7 +42,7 @@ export default function PackagesPricing({ hostingPackage }) {
               from <span className="text-xl font-bold">{plan.price}</span>
             </p>
             <p className="text-accent font-semibold">$0 SETUP FEE</p>
-            <button className="bg-royal-blue hover:bg-royal-blue-hover mt-4 w-full cursor-pointer rounded px-4 py-2 text-white">
+            <button className="bg-royal-blue hover:bg-royal-blue-hover mt-4 w-full cursor-pointer rounded-full px-4 py-2 text-white">
               ORDER NOW!
             </button>
           </div>

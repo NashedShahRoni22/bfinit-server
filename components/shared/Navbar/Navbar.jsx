@@ -113,7 +113,7 @@ export default function Navbar() {
       {/* large device login button */}
       <Link
         href="/"
-        className="hidden rounded-md border-2 p-2 text-[15px] font-semibold md:block"
+        className="hidden rounded-full border-2 px-5 py-2 text-[15px] font-semibold md:block"
       >
         Login
       </Link>

@@ -116,7 +116,7 @@ export default function PackagesPricing() {
           <button
             key={i}
             onClick={() => setSelectedPackage(packName)}
-            className={`min-w-fit cursor-pointer rounded-lg px-4 py-2 ${
+            className={`min-w-fit cursor-pointer rounded-full px-4 py-2 ${
               selectedPackage === packName
                 ? "bg-royal-blue text-white"
                 : "bg-white hover:bg-neutral-100"
@@ -157,7 +157,7 @@ export default function PackagesPricing() {
               from <span className="text-xl font-bold">{plan.price}</span>
             </p>
             <p className="text-accent font-semibold">$0 SETUP FEE</p>
-            <button className="bg-royal-blue hover:bg-royal-blue-hover mt-4 w-full cursor-pointer rounded px-4 py-2 text-white">
+            <button className="bg-royal-blue hover:bg-royal-blue-hover mt-4 w-full cursor-pointer rounded-full px-4 py-2 text-white">
               ORDER NOW!
             </button>
           </div>

@@ -118,7 +118,7 @@ export default function ServerCompare() {
         <div className="mt-4 text-center">
           <button
             onClick={() => setExpanded(!expanded)}
-            className="border-royal-blue cursor-pointer rounded-md border px-6 py-2 font-semibold transition-all duration-200 ease-linear hover:bg-neutral-200"
+            className="border-royal-blue cursor-pointer rounded-full border px-6 py-2 font-semibold transition-all duration-200 ease-linear hover:bg-neutral-200"
           >
             {expanded ? "Collapse" : "Expand to see all key facts"}
           </button>
