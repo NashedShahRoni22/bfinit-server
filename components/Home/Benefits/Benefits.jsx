@@ -1,6 +1,7 @@
 import supportBg from "@/public/images/home/support-bg.png";
-import expertBg from "@/public/images/home/expert-bg.png";
+import expertBg from "@/public/images/home/expert-bg.jpg";
 import Image from "next/image";
+import Link from "next/link";
 
 const benefitsData = [
   {
@@ -22,7 +23,7 @@ const benefitsData = [
     title: "Ready in 24 hours",
     description:
       "Order your new Virtual or Dedicated Server now and be up and running in 24 hours — This is our promise!",
-    bgImg: supportBg,
+    icon: "⏳",
   },
   {
     id: 4,
@@ -31,6 +32,7 @@ const benefitsData = [
       "Our state-of-the-art data centers in Strasbourg and St. Louis are independently tested and certified for excellence.",
     icon: "🖥️",
     button: "Learn more",
+    href: "/data-center",
   },
 ];
 
@@ -51,7 +53,7 @@ export default function Benefits() {
             style={{
               backgroundImage: benefit.bgImg && `url(${benefit.bgImg.src})`,
             }}
-            className={`rounded-md border border-neutral-200 p-6 text-center ${benefit.bgImg ? "flex flex-col justify-center bg-[#14161c] bg-cover bg-center text-white" : "bg-[#fafbff]"} ${
+            className={`rounded-2xl border border-neutral-200 p-6 text-center ${benefit.bgImg ? "flex flex-col justify-center bg-[#14161c] bg-cover bg-center text-white" : "bg-[#fafbff]"} ${
               i >= 3 ? "col-span-12 md:col-span-6" : "col-span-12 md:col-span-4"
             }`}
           >
@@ -63,15 +65,18 @@ export default function Benefits() {
             </h4>
             <p className={`mt-2`}>{benefit.description}</p>
             {benefit.button && (
-              <button className="mt-4 rounded-full border px-5 py-2 font-medium transition hover:bg-gray-200">
+              <Link
+                href={benefit.href}
+                className="mt-4 inline-block rounded-full border px-5 py-2 font-medium transition hover:bg-gray-200"
+              >
                 {benefit.button}
-              </button>
+              </Link>
             )}
           </div>
         ))}
 
         {/* Expert Contact Card */}
-        <div className="relative col-span-12 h-auto min-h-[292px] overflow-hidden rounded-md border border-neutral-200 bg-[#fafbff] md:col-span-6">
+        <div className="relative col-span-12 h-auto min-h-[292px] overflow-hidden rounded-2xl border border-neutral-200 bg-[#fafbff] md:col-span-6">
           <Image
             src={expertBg}
             alt="expert"
@@ -79,9 +84,12 @@ export default function Benefits() {
             className="object-cover object-center"
           />
           <div className="absolute bottom-4 left-4">
-            <button className="flex items-center rounded-full bg-white px-5 py-2 font-medium">
+            <Link
+              href="/"
+              className="flex items-center rounded-full bg-white px-5 py-2 font-medium"
+            >
               Contact an expert 💬
-            </button>
+            </Link>
           </div>
         </div>
       </div>

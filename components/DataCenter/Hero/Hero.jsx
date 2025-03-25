@@ -1,4 +1,4 @@
-import heroBg from "@/public/images/data-cener/data-centers-bg.png";
+import heroBg from "@/public/images/data-cener/data-centers-bg.jpg";
 
 export default function Hero() {
   return (
@@ -7,7 +7,7 @@ export default function Hero() {
         style={{
           backgroundImage: `url(${heroBg.src})`,
         }}
-        className="mt-4 flex min-h-96 w-full flex-col justify-center gap-5 rounded-md bg-cover bg-center px-5 py-10 text-white"
+        className="mt-4 flex min-h-96 w-full flex-col justify-center gap-5 rounded-2xl bg-cover bg-center px-5 py-10 text-white"
       >
         <h2 className="font-urbanist text-4xl font-bold">
           Two Secure Locations, One Quality Hosting Experience

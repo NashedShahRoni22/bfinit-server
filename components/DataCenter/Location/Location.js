@@ -1,6 +1,6 @@
 import Image from "next/image";
-import euroImg from "@/public/images/data-cener/european-dc.png";
-import usaImg from "@/public/images/data-cener/us-dc.png";
+import euroImg from "@/public/images/data-cener/european-dc.jpg";
+import usaImg from "@/public/images/data-cener/us-dc.jpg";
 
 const locationInfo = [
   {
@@ -35,7 +35,7 @@ export default function Location() {
               src={info.img}
               fill
               alt="reliable"
-              className="object-cover"
+              className="rounded-2xl object-cover"
             />
           </div>
 
