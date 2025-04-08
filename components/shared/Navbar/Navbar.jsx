@@ -5,23 +5,23 @@ import logo from "@/public/images/logo/logo.png";
 import MobileNav from "./MobileNav";
 
 const navItems = [
-  {
+  /*  {
     name: "Pricing",
     url: "/pricing",
-  },
+  }, */
   {
     name: "Hosting & Servers",
     children: [
       {
         icon: "https://img.icons8.com/ios/50/domain.png",
         title: "Web Hosting",
-        href: "/hosting/web-hosting",
+        href: "/web-hosting",
         description: "Reliable and affordable web hosting solutions.",
       },
       {
         icon: "https://img.icons8.com/ios/50/database--v1.png",
         title: "VPS Hosting",
-        href: "/hosting/vps-hosting",
+        href: "/vps-hosting",
         description: "Scalable and secure virtual private servers.",
       },
       /* {
@@ -33,7 +33,7 @@ const navItems = [
       {
         icon: "https://img.icons8.com/badges/50/server.png",
         title: "Dedicated Server",
-        href: "/hosting/dedicated-server",
+        href: "/dedicated-server",
         description: "High-performance servers for demanding applications.",
       },
     ],
@@ -113,7 +113,7 @@ export default function Navbar() {
       {/* large device login button */}
       <Link
         href="/"
-        className="hidden rounded-full shadow px-5 py-2 text-[15px] font-semibold md:block bg-royal-blue text-white"
+        className="bg-royal-blue hidden rounded-full px-5 py-2 text-[15px] font-semibold text-white shadow md:block"
       >
         Login
       </Link>
