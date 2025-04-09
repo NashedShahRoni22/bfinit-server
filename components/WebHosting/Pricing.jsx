@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ProductCardSkeleton from "../ProductCardSkeleton";
+import { getData } from "../shared/Helpers/GetData";
 
 const webHostingProducts = [
   {
@@ -19,17 +20,22 @@ const webHostingProducts = [
 ];
 
 export default function Pricing() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [productId, setProductId] = useState(4);
   const [products, setProducts] = useState([]);
+  const [skeletonCount, setSkeletonCount] = useState(4);
 
+  // fetch all dedicated servers
   useEffect(() => {
-    fetch(`https://hpanel.bfinit.com/api/product/list/${productId}`)
-      .then((res) => res.json())
-      .then((data) => {
+    setLoading(true);
+
+    getData(`https://hpanel.bfinit.com/api/product/list/${productId}`).then(
+      (data) => {
         setProducts(data.data);
-      });
-    setLoading(false);
+        setSkeletonCount(data.data.length || 4);
+        setLoading(false);
+      },
+    );
   }, [productId]);
 
   return (
@@ -59,8 +65,11 @@ export default function Pricing() {
 
       {/* Products Container */}
       <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {!loading && products && products.length > 0
-          ? products.map((product) => (
+        {loading || !products.length
+          ? Array.from({ length: skeletonCount }).map((_, i) => (
+              <ProductCardSkeleton key={i} />
+            ))
+          : products.map((product) => (
               <div
                 key={product.id}
                 className="flex flex-col gap-2 rounded-lg border border-neutral-200 bg-[#fafbff] p-6 text-center"
@@ -106,18 +115,19 @@ export default function Pricing() {
                   <span className="text-xl font-bold">
                     ${product.defaultStorage.price}
                   </span>
+                  /mo
                 </p>
                 <p className="text-accent font-semibold">$0 SETUP FEE</p>
                 <Link
-                  href="/"
                   className="bg-royal-blue hover:bg-royal-blue-hover mt-4 w-full cursor-pointer rounded-full px-4 py-2 text-white"
+                  href={`https://hpanel.bfinit.com/checkout?productId=${product?.defaultStorage?.server_id}&packageType=server&ram=${product?.defaultStorage?.ram}&storage=${
+                    product?.defaultStorage?.storage
+                  }&timePeriod=1&currency=USD&currencyRate=1&storageVariantId=`}
+                  target="_blanck"
                 >
                   ORDER NOW!
                 </Link>
               </div>
-            ))
-          : Array.from({ length: 4 }).map((_, i) => (
-              <ProductCardSkeleton key={i} />
             ))}
       </div>
     </div>

@@ -1,7 +1,8 @@
 "use client";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import ProductCardSkeleton from "../ProductCardSkeleton";
+import VpsPricing from "../cards/VpsPricing";
+import { getData } from "../shared/Helpers/GetData";
 
 const vpsHostingProducts = [
   {
@@ -15,17 +16,21 @@ const vpsHostingProducts = [
 ];
 
 export default function Pricing() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [productId, setProductId] = useState(2);
   const [products, setProducts] = useState([]);
+  const [skeletonCount, setSkeletonCount] = useState(4);
 
   useEffect(() => {
-    fetch(`https://hpanel.bfinit.com/api/product/list/${productId}`)
-      .then((res) => res.json())
-      .then((data) => {
+    setLoading(true);
+
+    getData(`https://hpanel.bfinit.com/api/product/list/${productId}`).then(
+      (data) => {
         setProducts(data.data);
-      });
-    setLoading(false);
+        setSkeletonCount(data.data.length || 4);
+        setLoading(false);
+      },
+    );
   }, [productId]);
 
   return (
@@ -55,63 +60,12 @@ export default function Pricing() {
 
       {/* Products Container */}
       <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {!loading && products && products.length > 0
-          ? products.map((product) => (
-              <div
-                key={product.id}
-                className="flex flex-col gap-2 rounded-lg border border-neutral-200 bg-[#fafbff] p-6 text-center"
-              >
-                <h3 className="font-urbanist text-xl font-bold">
-                  {product.name}
-                </h3>
-                <p className="text-sm text-gray-700">
-                  {product.processor} {product.core}
-                </p>
-                <p className="text-sm text-gray-700">{product.uniqueRams[0]}</p>
-                {/* <p className="text-sm text-gray-700">{product.processor}</p> */}
-                <p className="text-sm text-gray-700">{product.ips}</p>
-                <select
-                  className={`mt-2 w-full rounded-full border px-4 py-1.5 outline-none ${product.uniqueRams.length > 1 ? "border-black" : "border-neutral-200 bg-neutral-200 text-neutral-700"}`}
-                  disabled={product.uniqueRams.length <= 1}
-                >
-                  {product.uniqueRams &&
-                    product.uniqueRams.length > 0 &&
-                    product.uniqueRams.map((ram, i) => (
-                      <option key={i} value={ram}>
-                        {ram}
-                      </option>
-                    ))}
-                </select>
-                <select
-                  className={`mt-2 w-full rounded-full border px-4 py-1.5 outline-none ${product.storages.length > 1 ? "border-black" : "border-neutral-200 bg-neutral-200 text-neutral-700"}`}
-                  disabled={product.storages.length <= 1}
-                >
-                  {product.storages &&
-                    product.storages.length > 0 &&
-                    product.storages.map((storage, i) => (
-                      <option key={i} value={storage}>
-                        {storage}
-                      </option>
-                    ))}
-                </select>
-
-                <p className="mt-4">
-                  from{" "}
-                  <span className="text-xl font-bold">
-                    ${product.defaultStorage.price}
-                  </span>
-                </p>
-                <p className="text-accent font-semibold">$0 SETUP FEE</p>
-                <Link
-                  href="/"
-                  className="bg-royal-blue hover:bg-royal-blue-hover mt-4 w-full cursor-pointer rounded-full px-4 py-2 text-white"
-                >
-                  ORDER NOW!
-                </Link>
-              </div>
-            ))
-          : Array.from({ length: 4 }).map((_, i) => (
+        {loading || !products.length
+          ? Array.from({ length: skeletonCount }).map((_, i) => (
               <ProductCardSkeleton key={i} />
+            ))
+          : products.map((product) => (
+              <VpsPricing key={product.id} product={product} />
             ))}
       </div>
     </div>
