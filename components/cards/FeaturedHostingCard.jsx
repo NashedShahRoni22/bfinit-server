@@ -21,7 +21,7 @@ export default function FeaturedHostingCard({ pack }) {
         + $0 Setup Fee & No Extra Renewal Charge
       </p>
       <Link
-        href="/"
+        href={pack.route}
         className={`border-royal-blue text-royal-blue mt-4 block rounded-full border-2 py-2 text-center font-bold transition-all duration-200 ease-linear ${pack.mostPopular ? "bg-royal-blue hover:bg-royal-blue-hover text-white hover:border-transparent" : "hover:bg-neutral-200"}`}
       >
         Learn More

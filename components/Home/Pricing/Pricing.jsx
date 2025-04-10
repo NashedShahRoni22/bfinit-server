@@ -1,22 +1,23 @@
 import FeaturedHostingCard from "@/components/cards/FeaturedHostingCard";
 const hostingPackages = [
   {
-    name: "VIRTUAL SERVER SSD",
+    name: "WEB HOSTING",
     price: 4.99,
     description: "A simple and affordable solution for small websites.",
     features: [
       "Great performance at an affordable price",
       "Fast setup",
-      "Up to 6 vCores",
-      "Up to 32 GB RAM",
-      "Up to 500 GB SSD",
+      "Up to 4 vCores",
+      "Up to 64 GB RAM",
+      "Up to 2 TB SSD",
       "100 Mbit/s network",
       "Unlimited traffic",
     ],
+    route: "/web-hosting"
   },
   {
     name: "VIRTUAL SERVER HDD",
-    price: 14.99,
+    price: 14.50,
     description: "Best value for growing websites and businesses.",
     features: [
       "Dedicated performance at the lowest price",
@@ -27,6 +28,7 @@ const hostingPackages = [
       "100 Mbit/s network",
       "Unlimited traffic",
     ],
+    route: "/vps-hosting",
     mostPopular: true,
   },
   {
@@ -42,6 +44,7 @@ const hostingPackages = [
       "Up to 1 Gbit/s network",
       "Unlimited traffic",
     ],
+    route: "/dedicated-server"
   },
 ];
 

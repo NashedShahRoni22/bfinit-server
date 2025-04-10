@@ -39,6 +39,10 @@ const navItems = [
     ],
   },
   {
+    name: "Our Technologies",
+    url: "/our-technologies",
+  },
+  {
     name: "Data Center",
     url: "/data-center",
   },

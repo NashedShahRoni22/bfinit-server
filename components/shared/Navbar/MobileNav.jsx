@@ -44,7 +44,7 @@ export default function MobileNav({ navItems }) {
                   />
                 </button>
 
-                {showDropDown && (
+                {showDropDown === i && (
                   <div className="flex flex-col gap-1.5">
                     {item.children.map((subItem, i) => (
                       <div

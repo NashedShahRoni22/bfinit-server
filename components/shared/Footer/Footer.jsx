@@ -11,26 +11,26 @@ export default function Footer() {
     {
       icon: "https://img.icons8.com/ios/50/domain.png",
       title: "Web Hosting",
-      href: "/hosting/web-hosting",
+      href: "/web-hosting",
       description: "Reliable and affordable web hosting solutions.",
     },
     {
       icon: "https://img.icons8.com/ios/50/database--v1.png",
       title: "VPS Hosting",
-      href: "/hosting/vps-hosting",
+      href: "/vps-hosting",
       description: "Scalable and secure virtual private servers.",
     },
-    /* {
-    icon: "https://img.icons8.com/windows/50/maintenance.png",
-    title: "Custom VPS",
-    href: "/hosting/build-your-own-vps",
-    description: "Customize resources for your exact needs.",
-  }, */
     {
       icon: "https://img.icons8.com/badges/50/server.png",
       title: "Dedicated Server",
-      href: "/hosting/dedicated-server",
+      href: "/dedicated-server",
       description: "High-performance servers for demanding applications.",
+    },
+    {
+      icon: "https://img.icons8.com/windows/50/maintenance.png",
+      title: "Custom VPS",
+      href: "/custom-vps",
+      description: "Customize resources for your exact needs.",
     },
   ];
 
@@ -163,7 +163,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <h5 className="font-semibold">Quick Links</h5>
               <div className="mt-2 ml-2 flex flex-col gap-2">
                 {Pages.map((product, i) => (
@@ -176,7 +176,7 @@ export default function Footer() {
                   </Link>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
         <div className="my-5 h-0.5 w-full bg-white"></div>
@@ -187,11 +187,11 @@ export default function Footer() {
             Sète, France.
           </p>
           <div className="flex justify-center gap-4">
-            <FaFacebook className="lg:text-xl" />
-            <FaSquareXTwitter className="lg:text-xl" />
-            <BsLinkedin className="lg:text-xl" />
-            <BsInstagram className="lg:text-xl" />
-            <BsYoutube className="lg:text-xl" />
+            <FaFacebook className="lg:text-xl text-royal-blue" />
+            <FaSquareXTwitter className="lg:text-xl text-black" />
+            <BsLinkedin className="lg:text-xl text-royal-blue" />
+            <BsInstagram className="lg:text-xl text-orange-500" />
+            <BsYoutube className="lg:text-xl text-red-500" />
           </div>
         </div>
       </div>
