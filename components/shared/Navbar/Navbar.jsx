@@ -24,17 +24,17 @@ const navItems = [
         href: "/vps-hosting",
         description: "Scalable and secure virtual private servers.",
       },
-      /* {
-        icon: "https://img.icons8.com/windows/50/maintenance.png",
-        title: "Custom VPS",
-        href: "/hosting/build-your-own-vps",
-        description: "Customize resources for your exact needs.",
-      }, */
       {
         icon: "https://img.icons8.com/badges/50/server.png",
         title: "Dedicated Server",
         href: "/dedicated-server",
         description: "High-performance servers for demanding applications.",
+      },
+      {
+        icon: "https://img.icons8.com/windows/50/maintenance.png",
+        title: "Custom VPS",
+        href: "/custom-vps",
+        description: "Customize resources for your exact needs.",
       },
     ],
   },
